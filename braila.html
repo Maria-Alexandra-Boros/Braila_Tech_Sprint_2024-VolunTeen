@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="braila.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="carusel.js"></script>
+</head>
+<body>
+    <img src="logp.jpg" alt="logomare" class="logo">
+    <nav>
+        <ul>
+            <li><a href="braila.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="educatie.html">For You</a></li>
+        </ul>
+    </nav>
+
+    <div class="zigzag-container">
+        <p class="paragraph1"> Bine ai venit pe platforma care aduce împreună ONG-uri si voluntari adolescenti plini de energie pentru a schimba lumea! </p1>
+        <ul>
+            <li><a href="ong_login.html">Join as an ONG</a></li>
+            <li><a href="login.html">Join as a Volunteer</a></li>
+        </ul>
+    </div>
+
+    <div class="actiune-container">
+        <p>Sau începe acum!</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="image1.jpg" alt="Image 1">
+                    <div class="carousel-caption">Bătrâni</div>
+                </div>
+                <div class="carousel-item">
+                    <a href="eco.html">
+                    <img src="image2.jpg" alt="Eco">
+                    </a>
+                    <div class="carousel-caption">Eco</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="image3.jpg" alt="Animale">
+                    <div class="carousel-caption">Animale</div>
+                </div>
+                <div class="carousel-item">
+                    <img src="image4.jpg" alt="Copii">
+                    <div class="carousel-caption">Copii</div>
+                </div>
+                <div class="carousel-item">
+                    <a href="educatie.html">
+                    <img src="image5.jpg" alt="Educație"></a>
+                    <div class="carousel-caption">Educație</div>
+                </div>
+            </div>
+            <button class="prev"><</button>
+            <button class="next">></button>
+        </div>
+    </div>
+
+    
+    <script>
+$(document).ready(function() {
+    var itemWidth = $('.carousel-item').outerWidth(true);
+    var numItems = $('.carousel-item').length;
+    var visibleItems = 3; 
+
+    
+    $('.carousel-inner').css('width', itemWidth * numItems + 'px');
+
+   
+    $('.next').click(function() {
+        $('.carousel-inner').animate({
+            marginLeft: '-=' + itemWidth * visibleItems + 'px'
+        }, 500, function() {
+            $('.carousel-inner').append($('.carousel-item:lt(' + visibleItems + ')'));
+            $('.carousel-inner').css('margin-left', '0');
+        });
+    });
+
+
+    $('.prev').click(function() {
+        $('.carousel-inner').css('margin-left', '-' + itemWidth * visibleItems + 'px');
+        $('.carousel-inner').prepend($('.carousel-item:gt(' + (numItems - visibleItems - 1) + ')'));
+        $('.carousel-inner').animate({
+            marginLeft: '+=' + itemWidth * visibleItems + 'px'
+        }, 500);
+    });
+});
+
+</script>
+<footer>
+    <p>&copy; 2024 VolunTeen. All rights reserved by <a href="#">PixelPower</a>.</p>
+</footer>
+</body>
+</html>
